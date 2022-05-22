@@ -1,0 +1,125 @@
+* {
+    margin: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    /* height: 56px;
+    width: 80%; */
+}
+#navbar{
+    box-shadow:rgba(0, 0,0, 0.15)  1.95px  1.95px  2.6px ;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: aliceblue;
+    padding: 20px;
+}
+h3 {
+    font-weight: 100;
+    color: black;
+}
+#navbar > div:first-child{
+    margin-left: 3%;
+
+}
+#navbar > div:nth-child(2){
+    display: flex;
+    justify-content: space-around;
+    margin-right: 3%;
+}
+span{
+    color: brown;
+    font-size: 18px;
+}
+#navbar a{
+    text-decoration: none;
+    color: black;
+    margin: 10px;
+}
+form {
+    box-shadow: rgb(0 0 0 / 35%) 5px 0px 15px;
+    border-radius: 8px;
+    display: flex;
+    flex-direction: column;
+    width: 30%;
+    box-sizing: border-box;
+    padding: 2% 5% 5% 5%;
+    margin: auto;
+    margin-top: 3%;
+    background-color: aliceblue;
+}
+form h1 {
+    margin: auto;
+    margin-bottom: 4%;
+    font-size: 24px;
+    margin-left: 34px;
+    font-family: sans-serif;
+    font-weight: 200;
+}
+select#unit {
+    width: 90%;
+}
+select#batch {
+    width: 90%;
+}
+input#url {
+    width: 83%;
+}
+input#submit {
+    width: 91%;
+}
+form input, form select {
+    margin-top: 3%;
+    width: 80%;
+    margin: auto;
+    margin-top: 4%;
+    /* height: 35px; */
+    padding: 10px;
+    font-size: large;
+    /* border: 3px solid grey; */
+    border-right: 0;
+    border: solid 2px black;
+    /* border-top: 1px solid black; */
+}
+#sumit {
+    width: 45%;
+    border: 0;
+    background-color:brown;
+    color: aliceblue;
+    border-radius: 4px;
+    margin-top: 4%;
+
+}
+#container h3{
+    display: block;
+    margin-top: 4%;
+    text-align: center;
+    /* background-color: aqua; */
+}
+#container p {
+    margin: auto;
+    margin-top: 3%;
+}
+
+/* dashboard part css here ! */
+table{
+    margin: auto;
+    margin-top: 20px;
+    height: 40px;
+    width: 80%;
+
+}
+table,td,th{
+    border: 1px solid rgb(12, 12, 11);
+    text-align: left;
+    background-color: aliceblue;
+    justify-content:  center;
+    justify-items: center;
+    height: 31px;
+    width: 50%;
+
+ 
+ }
+
+ img {
+    width: 100px;
+}
+
