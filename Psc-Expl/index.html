@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+<div id="navbar">
+   
+
+    <h1 id="root">  </h1>
+    
+</div>
+
+    <button><a href="Dashboard.html">Dashboard</a></button>
+    <h1>Add Student Data </h1>
+
+
+    <form action="" onsubmit="storeData(event)" id="student_data">
+
+        <input type="text" placeholder="name"  id="name"><br><br>
+        <input type="text" placeholder="course" id="course"><br><br>
+        <input type="text" placeholder="unit" id="unit"><br><br>
+        <input type="text" placeholder="image" id="image"><br><br>
+        <input type="text" placeholder="batch" id="batch"><br><br>
+        <input type="submit"><br><br>
+
+    </form>
+</body>
+</html>
+<script>
+
+ //   creat cunnstructur function for finding detail as object
+
+function Student(n,c,u,i,b){
+    this.name=n;
+    this.course=c;
+    this.unit=u;
+    this.image=i;
+    this.batch=`FtWeb-${b}:`;
+}
+
+
+//main function for printing the details
+
+    function storeData(e){
+        e.preventDefault()
+    let form = document.getElementById('student_data')
+    let name = form.name.value;
+    let  course = form.course.value;
+    let unit = form.unit.value;
+    let image = form.image.value;
+    let batch = form.batch.value;
+
+    
+    //console.log("name:",name,"course:",course,'unit:',unit,'image:',image,'batch:',batch)
+
+    let s1 = new Student(name,course,unit,image,batch)
+   
+
+    let data =JSON.parse(localStorage.getItem('students'))||[]
+    data.push(s1)
+    localStorage.setItem('students',JSON.stringify(data));
+    console.log(s1)
+}
+
+//calculate function for counting the number of student in each batch
+
+function calculate(){
+    let data =JSON.parse(localStorage.getItem('students'))||[]
+    let obj = {};
+        for(var i = 0; i < data.length; i++){
+        if(!obj[data[i].batch]){
+        obj[data[i].batch]=0;
+         }
+         
+}
+
+for(var i=0; i < data.length; i++){       
+    obj[data[i].batch]++;
+   // console.log(obj[data[i].batch])
+
+  }
+  console.log(obj)
+localStorage.setItem('obj1',JSON.stringify(obj))
+  
+ for(var key in obj){
+    
+    document.getElementById('root').append(`${key} ${obj[key]}  `)
+    console.log(key)
+   
+ }  
+
+}
+calculate()
+
+
+</script>

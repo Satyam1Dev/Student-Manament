@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+    #container {
+    width: 80%;
+    margin: auto;
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}
+
+img {
+    width: 200px;
+    height: 200px;
+}
+    </style>
+</head>
+<body>
+    <h1 id="root"></h1>
+
+    <div id="navbar">
+
+    </div>
+
+    <div id="container">
+
+    </div>
+
+   
+</body>
+</html>
+
+<script>
+
+    function append(){
+        let data = JSON.parse(localStorage.getItem('students'))||[]
+        let container = document.getElementById('container')
+       
+data.forEach(function(el,index){
+    //console.log(el)   
+    let div = document.createElement('div'); 
+    let img =document.createElement('img')
+    img.src=el.image;
+    let p=document.createElement('p') 
+    p.innerText=el.name;
+    let p1=document.createElement('p') 
+    p1.innerText=el.course;
+    let p2=document.createElement('p') 
+    p2.innerText=el.unit;
+    let p3=document.createElement('p') 
+    p3.innerText=el.batch;
+ 
+    let btn =document.createElement('button');
+    btn.innerText='Remove';
+    btn.addEventListener('click',function(){
+        deleteFunction(el,index);
+    }); 
+
+
+    div.append(img,p,p1,p2,p3,btn);
+    container.append(div)
+});
+     
+let  trashData=JSON.parse(localStorage.getItem("trash")) || [];
+    function deleteFunction(el,index){
+    trashData.push(el);
+    localStorage.setItem("trash",JSON.stringify(trashData));
+    data.splice(index,1);
+    localStorage.setItem("students",JSON.stringify(data));
+    event.target.parentNode.parentNode.remove();
+   // displayNumberStudents();
+   window.location.reload();
+}
+
+
+    }
+    append()
+
+    let nav = JSON.parse(localStorage.getItem("obj1"))
+    console.log(nav)
+   
+
+    for(var key in nav){
+    
+    document.getElementById('root').append(`${key} ${nav[key]}  `)
+    console.log(key)
+   
+ } 
+
+
+
+
+
+</script>
